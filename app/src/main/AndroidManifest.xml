@@ -7,9 +7,9 @@
         android:name=".StickerApplication"
         android:allowBackup="false"
         android:fullBackupContent="false"
-        android:icon="@mipmap/logo"
+        android:icon="@drawable/icon"
         android:label="FFC Stickers"
-        android:roundIcon="@mipmap/logo"
+        android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
