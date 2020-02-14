@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorAccent">#128C7E</color>
+    <color name="infoPageBackgroundColor">#EBEBEB</color>
+    <color name="themeColor">#1976D2</color>
+    <color name="actionBarArrowColor">#fff</color>
+</resources>
