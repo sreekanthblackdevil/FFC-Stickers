@@ -16,6 +16,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 class StickerPackListItemViewHolder extends RecyclerView.ViewHolder {
 
     final View container;
@@ -24,6 +26,7 @@ class StickerPackListItemViewHolder extends RecyclerView.ViewHolder {
     final TextView filesizeView;
     final ImageButton addButton;
     final LinearLayout imageRowView;
+    final CircleImageView trayIcon;
 
     StickerPackListItemViewHolder(final View itemView) {
         super(itemView);
@@ -33,5 +36,6 @@ class StickerPackListItemViewHolder extends RecyclerView.ViewHolder {
         filesizeView = itemView.findViewById(R.id.sticker_pack_filesize);
         addButton = itemView.findViewById(R.id.add_button_on_list);
         imageRowView = itemView.findViewById(R.id.sticker_packs_list_item_image_list);
+        trayIcon = itemView.findViewById(R.id.tray_icon);
     }
 }

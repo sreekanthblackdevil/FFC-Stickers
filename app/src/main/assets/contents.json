@@ -6,7 +6,7 @@
       "identifier": "Guhan_1",
       "name": "Pack 1",
       "publisher": "FFC",
-      "tray_image_file": "stk1.webp",
+      "tray_image_file": "stk28.webp",
       "image_data_version": "1",
       "avoid_cache": false,
       "publisher_email": "",
@@ -230,7 +230,7 @@
       "identifier": "Jimitt_1",
       "name": "Pack 2",
       "publisher": "FFC",
-      "tray_image_file": "stk3.webp",
+      "tray_image_file": "stk17.webp",
       "image_data_version": "1",
       "avoid_cache": false,
       "publisher_email": "",
@@ -407,7 +407,7 @@
           ]
         },
         {
-          "image_file": "stk3.webp",
+          "image_file": "stk7.webp",
           "emojis": [
             "",
             ""
@@ -435,7 +435,7 @@
           ]
         },
         {
-          "image_file": "stk7.webp",
+          "image_file": "stk3.webp",
           "emojis": [
             "",
             ""
@@ -517,7 +517,7 @@
       "identifier": "Aloy",
       "name": "Pack 4",
       "publisher": "FFC",
-      "tray_image_file": "stk3.webp",
+      "tray_image_file": "stk22.webp",
       "image_data_version": "1",
       "avoid_cache": false,
       "publisher_email": "",
@@ -741,7 +741,7 @@
       "identifier": "Pack_1",
       "name": "Pack 5",
       "publisher": "Collect by NC",
-      "tray_image_file": "stk1.webp",
+      "tray_image_file": "stk14.webp",
       "image_data_version": "1",
       "avoid_cache": false,
       "publisher_email": "",
@@ -965,7 +965,7 @@
       "identifier": "Pack_2",
       "name": "Pack 6",
       "publisher": "Collect by NC",
-      "tray_image_file": "stk1.webp",
+      "tray_image_file": "stk22.webp",
       "image_data_version": "1",
       "avoid_cache": false,
       "publisher_email": "",
