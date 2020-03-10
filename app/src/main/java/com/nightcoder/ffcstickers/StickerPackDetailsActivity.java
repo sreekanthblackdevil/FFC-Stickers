@@ -27,9 +27,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
 
 import java.lang.ref.WeakReference;
 
@@ -96,20 +94,14 @@ public class StickerPackDetailsActivity extends AddStickerPackActivity {
             getSupportActionBar().setTitle(showUpButton ? getResources().getString(R.string.title_activity_sticker_pack_details_multiple_pack) : getResources().getQuantityString(R.plurals.title_activity_sticker_packs_list, 1));
         }
 
-        MobileAds.initialize(this, initializationStatus -> {
-        });
 
         loadAds();
     }
 
     private void loadAds() {
-        AdView adView = findViewById(R.id.adView);
-        adView.loadAd(new AdRequest.Builder().build());
-
         interstitialAd = new InterstitialAd(this);
         interstitialAd.setAdUnitId(getResources().getString(R.string.interstitial_id));
         interstitialAd.loadAd(new AdRequest.Builder().build());
-
         interstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {
@@ -119,6 +111,13 @@ public class StickerPackDetailsActivity extends AddStickerPackActivity {
         });
     }
 
+    @Override
+    protected void onDestroy() {
+        if (interstitialAd != null) {
+            interstitialAd.setAdListener(null);
+        }
+        super.onDestroy();
+    }
 
     private void launchInfoActivity(String publisherWebsite, String publisherEmail, String privacyPolicyWebsite, String licenseAgreementWebsite, String trayIconUriString) {
         Intent intent = new Intent(StickerPackDetailsActivity.this, StickerPackInfoActivity.class);

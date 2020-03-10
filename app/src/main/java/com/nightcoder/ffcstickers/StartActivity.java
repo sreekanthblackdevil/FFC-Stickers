@@ -18,11 +18,6 @@ public class StartActivity extends AppCompatActivity {
         handler.postDelayed(runnable, 2000);
     }
 
-    Runnable runnable = new Runnable() {
-        @Override
-        public void run() {
-            startActivity(new Intent(StartActivity.this, EntryActivity.class)
-                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
-        }
-    };
+    Runnable runnable = () -> startActivity(new Intent(StartActivity.this, EntryActivity.class)
+            .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
 }

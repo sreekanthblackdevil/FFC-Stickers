@@ -10,7 +10,6 @@ package com.nightcoder.ffcstickers;
 
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -27,6 +26,8 @@ class StickerPackListItemViewHolder extends RecyclerView.ViewHolder {
     final ImageButton addButton;
     final LinearLayout imageRowView;
     final CircleImageView trayIcon;
+    final LinearLayout addButtonCon, shareButton, favButton;
+    final TextView addCount, favCount, shareCount;
 
     StickerPackListItemViewHolder(final View itemView) {
         super(itemView);
@@ -37,5 +38,11 @@ class StickerPackListItemViewHolder extends RecyclerView.ViewHolder {
         addButton = itemView.findViewById(R.id.add_button_on_list);
         imageRowView = itemView.findViewById(R.id.sticker_packs_list_item_image_list);
         trayIcon = itemView.findViewById(R.id.tray_icon);
+        addButtonCon = itemView.findViewById(R.id.add_con);
+        addCount = itemView.findViewById(R.id.add_count);
+        favCount = itemView.findViewById(R.id.fave_count);
+        shareCount = itemView.findViewById(R.id.share_count);
+        shareButton = itemView.findViewById(R.id.share_con);
+        favButton = itemView.findViewById(R.id.fav_con);
     }
 }

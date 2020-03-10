@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.nightcoder.ffcstickers">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".StickerApplication"
         android:allowBackup="false"
@@ -17,8 +19,9 @@
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/app_id"/>
-
-        <activity android:name=".StartActivity">
+        <activity
+            android:name=".StartActivity"
+            android:theme="@style/startStyle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

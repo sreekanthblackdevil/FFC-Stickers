@@ -14,8 +14,9 @@ import android.text.format.Formatter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,10 +32,12 @@ public class StickerPackListAdapter extends RecyclerView.Adapter<StickerPackList
     private final OnAddButtonClickedListener onAddButtonClickedListener;
     private int maxNumberOfStickersInARow;
     private int minMarginBetweenImages;
+    private Context mContext;
 
-    StickerPackListAdapter(@NonNull List<StickerPack> stickerPacks, @NonNull OnAddButtonClickedListener onAddButtonClickedListener) {
+    StickerPackListAdapter(@NonNull Context context, @NonNull List<StickerPack> stickerPacks, @NonNull OnAddButtonClickedListener onAddButtonClickedListener) {
         this.stickerPacks = stickerPacks;
         this.onAddButtonClickedListener = onAddButtonClickedListener;
+        this.mContext = context;
     }
 
     @NonNull
@@ -53,6 +56,8 @@ public class StickerPackListAdapter extends RecyclerView.Adapter<StickerPackList
         viewHolder.publisherView.setText(pack.publisher);
         viewHolder.filesizeView.setText(Formatter.formatShortFileSize(context, pack.getTotalSize()));
         viewHolder.trayIcon.setImageURI(StickerPackLoader.getStickerAssetUri(pack.identifier, pack.trayImageFile));
+        viewHolder.favButton.setOnClickListener(view -> {
+        });
 
         viewHolder.titleView.setText(pack.name);
         viewHolder.container.setOnClickListener(view -> {
@@ -75,27 +80,20 @@ public class StickerPackListAdapter extends RecyclerView.Adapter<StickerPackList
             }
             viewHolder.imageRowView.addView(rowImage);
         }
-        setAddButtonAppearance(viewHolder.addButton, pack);
+        setAddButtonAppearance(viewHolder.addButton, viewHolder.addButtonCon, viewHolder.addCount, pack);
     }
 
-    private void setAddButtonAppearance(ImageView addButton, StickerPack pack) {
+    private void setAddButtonAppearance(ImageButton addButton, LinearLayout button, TextView textView, StickerPack pack) {
         if (pack.getIsWhitelisted()) {
             addButton.setImageResource(R.drawable.sticker_3rdparty_added);
-            addButton.setClickable(false);
-            addButton.setOnClickListener(null);
-            //setBackground(addButton, null);
+            button.setClickable(false);
+            button.setOnClickListener(null);
+            textView.setTextColor(mContext.getResources().getColor(R.color.themeColor));
         } else {
             addButton.setImageResource(R.drawable.sticker_3rdparty_add);
-            addButton.setOnClickListener(v -> onAddButtonClickedListener.onAddButtonClicked(pack));
-            //TypedValue outValue = new TypedValue();
-            //addButton.getContext().getTheme().resolveAttribute(android.R.attr.selectableItemBackground, outValue, true);
-            //addButton.setBackgroundResource(outValue.resourceId);
+            button.setOnClickListener(v -> onAddButtonClickedListener.onAddButtonClicked(pack));
         }
     }
-
-//    private void setBackground(View view, Drawable background) {
-//        view.setBackground(background);
-//    }
 
     @Override
     public int getItemCount() {

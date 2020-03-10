@@ -114,7 +114,7 @@ public abstract class AddStickerPackActivity extends BaseActivity {
                     new StickerPackNotAddedMessageFragment().show(getSupportFragmentManager(), "sticker_pack_not_added");
                 }
             } else {
-                if (interstitialAd == null || !interstitialAd.isLoading()) {
+                if (interstitialAd == null || !interstitialAd.isLoading() || interstitialAd.isLoaded()) {
                     interstitialAd = new InterstitialAd(this);
                     interstitialAd.setAdUnitId(getResources().getString(R.string.interstitial_id));
                     interstitialAd.loadAd(new AdRequest.Builder().build());

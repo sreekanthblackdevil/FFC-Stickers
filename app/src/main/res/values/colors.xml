@@ -4,4 +4,5 @@
     <color name="infoPageBackgroundColor">#EBEBEB</color>
     <color name="themeColor">#1976D2</color>
     <color name="actionBarArrowColor">#fff</color>
+    <color name="grey">#868686</color>
 </resources>

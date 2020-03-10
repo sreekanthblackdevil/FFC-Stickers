@@ -15,8 +15,10 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 
 import java.lang.ref.WeakReference;
@@ -34,6 +36,8 @@ public class StickerPackListActivity extends AddStickerPackActivity {
     private WhiteListCheckAsyncTask whiteListCheckAsyncTask;
     private ArrayList<StickerPack> stickerPackList;
 
+    private InterstitialAd interstitialAd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +48,6 @@ public class StickerPackListActivity extends AddStickerPackActivity {
 
         MobileAds.initialize(this, initializationStatus -> {
         });
-
         loadAds();
 
     }
@@ -52,6 +55,17 @@ public class StickerPackListActivity extends AddStickerPackActivity {
     private void loadAds(){
         AdView adView = findViewById(R.id.adView);
         adView.loadAd(new AdRequest.Builder().build());
+
+        interstitialAd = new InterstitialAd(this);
+        interstitialAd.setAdUnitId(getResources().getString(R.string.interstitial_id));
+        interstitialAd.loadAd(new AdRequest.Builder().build());
+        interstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                super.onAdLoaded();
+                interstitialAd.show();
+            }
+        });
     }
 
     @Override
@@ -67,10 +81,14 @@ public class StickerPackListActivity extends AddStickerPackActivity {
         if (whiteListCheckAsyncTask != null && !whiteListCheckAsyncTask.isCancelled()) {
             whiteListCheckAsyncTask.cancel(true);
         }
+
+//        if (interstitialAd != null) {
+//            interstitialAd.setAdListener(null);
+//        }
     }
 
     private void showStickerPackList(List<StickerPack> stickerPackList) {
-        allStickerPacksListAdapter = new StickerPackListAdapter(stickerPackList, onAddButtonClickedListener);
+        allStickerPacksListAdapter = new StickerPackListAdapter(this, stickerPackList, onAddButtonClickedListener);
         packRecyclerView.setAdapter(allStickerPacksListAdapter);
         packLayoutManager = new LinearLayoutManager(this);
         packLayoutManager.setOrientation(RecyclerView.VERTICAL);

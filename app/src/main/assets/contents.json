@@ -4,7 +4,7 @@
   "sticker_packs": [
     {
       "identifier": "Guhan_1",
-      "name": "Pack 1",
+      "name": "Guhan Pack 1",
       "publisher": "FFC",
       "tray_image_file": "stk28.webp",
       "image_data_version": "1",
@@ -228,7 +228,7 @@
     },
     {
       "identifier": "Jimitt_1",
-      "name": "Pack 2",
+      "name": "Jimitt Pack 1",
       "publisher": "FFC",
       "tray_image_file": "stk17.webp",
       "image_data_version": "1",
@@ -358,13 +358,6 @@
           ]
         },
         {
-          "image_file": "stk18.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
           "image_file": "stk19.webp",
           "emojis": [
             "",
@@ -382,7 +375,7 @@
     },
     {
       "identifier": "Guhan_2",
-      "name": "Pack 3",
+      "name": "Guhan Pack 2",
       "publisher": "FFC",
       "tray_image_file": "stk3.webp",
       "image_data_version": "1",
@@ -515,7 +508,7 @@
     },
     {
       "identifier": "Aloy",
-      "name": "Pack 4",
+      "name": "Aloy Pack 1",
       "publisher": "FFC",
       "tray_image_file": "stk22.webp",
       "image_data_version": "1",
@@ -739,7 +732,7 @@
     },
     {
       "identifier": "Pack_1",
-      "name": "Pack 5",
+      "name": "Mix #1",
       "publisher": "Collect by NC",
       "tray_image_file": "stk14.webp",
       "image_data_version": "1",
@@ -963,7 +956,7 @@
     },
     {
       "identifier": "Pack_2",
-      "name": "Pack 6",
+      "name": "Mix #2",
       "publisher": "Collect by NC",
       "tray_image_file": "stk22.webp",
       "image_data_version": "1",
@@ -1187,7 +1180,7 @@
     },
     {
       "identifier": "Guhan_3",
-      "name": "Pack 7",
+      "name": "Guhan Pack 3",
       "publisher": "FFC",
       "tray_image_file": "stk2.webp",
       "image_data_version": "1",
@@ -1396,225 +1389,8 @@
       ]
     },
     {
-      "identifier": "Guhan_4",
-      "name": "Pack 8",
-      "publisher": "FFC",
-      "tray_image_file": "stk1.webp",
-      "image_data_version": "1",
-      "avoid_cache": false,
-      "publisher_email": "",
-      "publisher_website": "",
-      "privacy_policy_website": "",
-      "license_agreement_website": "",
-      "stickers": [
-        {
-          "image_file": "stk1.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
-          "image_file": "stk2.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
-          "image_file": "stk3.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
-          "image_file": "stk4.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
-          "image_file": "stk5.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
-          "image_file": "stk6.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
-          "image_file": "stk7.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
-          "image_file": "stk8.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
-          "image_file": "stk9.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
-          "image_file": "stk10.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
-          "image_file": "stk11.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
-          "image_file": "stk12.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
-          "image_file": "stk13.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
-          "image_file": "stk14.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
-          "image_file": "stk15.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
-          "image_file": "stk16.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
-          "image_file": "stk17.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
-          "image_file": "stk18.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
-          "image_file": "stk19.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
-          "image_file": "stk20.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
-          "image_file": "stk21.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
-          "image_file": "stk22.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
-          "image_file": "stk23.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
-          "image_file": "stk24.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
-          "image_file": "stk25.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
-          "image_file": "stk26.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
-          "image_file": "stk27.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
-          "image_file": "stk28.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        },
-        {
-          "image_file": "stk29.webp",
-          "emojis": [
-            "",
-            ""
-          ]
-        }
-      ]
-    },
-    {
       "identifier": "Pack_3",
-      "name": "Pack 9",
+      "name": "Mix #3",
       "publisher": "Collect by NC",
       "tray_image_file": "stk3.webp",
       "image_data_version": "1",
@@ -1837,8 +1613,225 @@
       ]
     },
     {
+      "identifier": "Guhan_4",
+      "name": "Guhan Pack 4",
+      "publisher": "FFC",
+      "tray_image_file": "stk1.webp",
+      "image_data_version": "1",
+      "avoid_cache": false,
+      "publisher_email": "",
+      "publisher_website": "",
+      "privacy_policy_website": "",
+      "license_agreement_website": "",
+      "stickers": [
+        {
+          "image_file": "stk1.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        },
+        {
+          "image_file": "stk2.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        },
+        {
+          "image_file": "stk3.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        },
+        {
+          "image_file": "stk4.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        },
+        {
+          "image_file": "stk5.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        },
+        {
+          "image_file": "stk6.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        },
+        {
+          "image_file": "stk7.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        },
+        {
+          "image_file": "stk8.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        },
+        {
+          "image_file": "stk9.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        },
+        {
+          "image_file": "stk10.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        },
+        {
+          "image_file": "stk11.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        },
+        {
+          "image_file": "stk12.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        },
+        {
+          "image_file": "stk13.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        },
+        {
+          "image_file": "stk14.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        },
+        {
+          "image_file": "stk15.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        },
+        {
+          "image_file": "stk16.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        },
+        {
+          "image_file": "stk17.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        },
+        {
+          "image_file": "stk18.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        },
+        {
+          "image_file": "stk19.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        },
+        {
+          "image_file": "stk20.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        },
+        {
+          "image_file": "stk21.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        },
+        {
+          "image_file": "stk22.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        },
+        {
+          "image_file": "stk23.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        },
+        {
+          "image_file": "stk24.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        },
+        {
+          "image_file": "stk25.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        },
+        {
+          "image_file": "stk26.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        },
+        {
+          "image_file": "stk27.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        },
+        {
+          "image_file": "stk28.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        },
+        {
+          "image_file": "stk29.webp",
+          "emojis": [
+            "",
+            ""
+          ]
+        }
+      ]
+    },
+    {
       "identifier": "Pack_4",
-      "name": "Pack 10",
+      "name": "Mix #4",
       "publisher": "Collect by NC",
       "tray_image_file": "stk1.webp",
       "image_data_version": "1",
