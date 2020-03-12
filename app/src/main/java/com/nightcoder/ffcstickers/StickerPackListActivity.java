@@ -8,8 +8,14 @@
 
 package com.nightcoder.ffcstickers;
 
+import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.Window;
+import android.view.WindowManager;
 
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -42,30 +48,51 @@ public class StickerPackListActivity extends AddStickerPackActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sticker_pack_list);
-        packRecyclerView = findViewById(R.id.sticker_pack_list);
-        stickerPackList = getIntent().getParcelableArrayListExtra(EXTRA_STICKER_PACK_LIST_DATA);
-        showStickerPackList(stickerPackList);
 
         MobileAds.initialize(this, initializationStatus -> {
         });
-        loadAds();
 
-    }
-
-    private void loadAds(){
         AdView adView = findViewById(R.id.adView);
         adView.loadAd(new AdRequest.Builder().build());
+        prepareAd();
+
+
+        packRecyclerView = findViewById(R.id.sticker_pack_list);
+        stickerPackList = getIntent().getParcelableArrayListExtra(EXTRA_STICKER_PACK_LIST_DATA);
+        showStickerPackList(stickerPackList);
+    }
+
+    private void prepareAd() {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.loading_ads);
+        Window window = dialog.getWindow();
+        assert window != null;
+        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        window.setGravity(Gravity.CENTER);
+        window.setWindowAnimations(R.style.DialogAnimation);
+        window.setLayout(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(false);
+        dialog.show();
 
         interstitialAd = new InterstitialAd(this);
         interstitialAd.setAdUnitId(getResources().getString(R.string.interstitial_id));
         interstitialAd.loadAd(new AdRequest.Builder().build());
+
         interstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {
                 super.onAdLoaded();
                 interstitialAd.show();
+                dialog.cancel();
+            }
+
+            @Override
+            public void onAdFailedToLoad(int i) {
+                super.onAdFailedToLoad(i);
+                dialog.cancel();
             }
         });
+
     }
 
     @Override
@@ -81,10 +108,6 @@ public class StickerPackListActivity extends AddStickerPackActivity {
         if (whiteListCheckAsyncTask != null && !whiteListCheckAsyncTask.isCancelled()) {
             whiteListCheckAsyncTask.cancel(true);
         }
-
-//        if (interstitialAd != null) {
-//            interstitialAd.setAdListener(null);
-//        }
     }
 
     private void showStickerPackList(List<StickerPack> stickerPackList) {
@@ -102,13 +125,15 @@ public class StickerPackListActivity extends AddStickerPackActivity {
     }
 
 
-    private final StickerPackListAdapter.OnAddButtonClickedListener onAddButtonClickedListener = pack -> addStickerPackToWhatsApp(pack.identifier, pack.name);
+    private final StickerPackListAdapter.OnAddButtonClickedListener onAddButtonClickedListener = pack ->
+            addStickerPackToWhatsApp(pack.identifier, pack.name);
 
 
     private void recalculateColumnCount() {
         final int previewSize = getResources().getDimensionPixelSize(R.dimen.sticker_pack_list_item_preview_image_size);
         int firstVisibleItemPosition = packLayoutManager.findFirstVisibleItemPosition();
-        StickerPackListItemViewHolder viewHolder = (StickerPackListItemViewHolder) packRecyclerView.findViewHolderForAdapterPosition(firstVisibleItemPosition);
+        StickerPackListItemViewHolder viewHolder = (StickerPackListItemViewHolder)
+                packRecyclerView.findViewHolderForAdapterPosition(firstVisibleItemPosition);
         if (viewHolder != null) {
             final int widthOfImageRow = viewHolder.imageRowView.getMeasuredWidth();
             final int max = Math.max(widthOfImageRow / previewSize, 1);

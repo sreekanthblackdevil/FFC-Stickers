@@ -22,15 +22,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
-import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
+
+import java.util.Objects;
 
 
 public abstract class AddStickerPackActivity extends BaseActivity {
     private static final int ADD_PACK = 200;
     private static final String TAG = "AddStickerPackActivity";
-    private InterstitialAd interstitialAd;
 
     protected void addStickerPackToWhatsApp(String identifier, String stickerPackName) {
         try {
@@ -58,9 +58,9 @@ public abstract class AddStickerPackActivity extends BaseActivity {
 
     }
 
-    private void launchIntentToAddPackToSpecificPackage(String identifier, String stickerPackName, String whatsappPackageName) {
+    private void launchIntentToAddPackToSpecificPackage(String identifier, String stickerPackName, String whatsAppPackageName) {
         Intent intent = createIntentToAddStickerPack(identifier, stickerPackName);
-        intent.setPackage(whatsappPackageName);
+        intent.setPackage(whatsAppPackageName);
         try {
             startActivityForResult(intent, ADD_PACK);
         } catch (ActivityNotFoundException e) {
@@ -91,9 +91,6 @@ public abstract class AddStickerPackActivity extends BaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        if (interstitialAd != null) {
-            interstitialAd.setAdListener(null);
-        }
     }
 
     @Override
@@ -113,28 +110,17 @@ public abstract class AddStickerPackActivity extends BaseActivity {
                 } else {
                     new StickerPackNotAddedMessageFragment().show(getSupportFragmentManager(), "sticker_pack_not_added");
                 }
-            } else {
-                if (interstitialAd == null || !interstitialAd.isLoading() || interstitialAd.isLoaded()) {
-                    interstitialAd = new InterstitialAd(this);
-                    interstitialAd.setAdUnitId(getResources().getString(R.string.interstitial_id));
-                    interstitialAd.loadAd(new AdRequest.Builder().build());
-                    interstitialAd.setAdListener(new AdListener() {
-                        @Override
-                        public void onAdLoaded() {
-                            super.onAdLoaded();
-                            interstitialAd.show();
-                        }
-                    });
-                }
             }
         }
     }
+
+
 
     public static final class StickerPackNotAddedMessageFragment extends DialogFragment {
         @NonNull
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
-            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity())
+            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(Objects.requireNonNull(getActivity()))
                     .setMessage(R.string.add_pack_fail_prompt_update_whatsapp)
                     .setCancelable(true)
                     .setPositiveButton(android.R.string.ok, (dialog, which) -> dismiss())

@@ -8,15 +8,21 @@
 
 package com.nightcoder.ffcstickers;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.format.Formatter;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -56,13 +62,14 @@ public class StickerPackDetailsActivity extends AddStickerPackActivity {
     private View alreadyAddedText;
     private StickerPack stickerPack;
     private View divider;
-    private InterstitialAd interstitialAd;
     private WhiteListCheckAsyncTask whiteListCheckAsyncTask;
+    private InterstitialAd interstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sticker_pack_details);
+        prepareAd();
         boolean showUpButton = getIntent().getBooleanExtra(EXTRA_SHOW_UP_BUTTON, false);
         stickerPack = getIntent().getParcelableExtra(EXTRA_STICKER_PACK_DATA);
         TextView packNameTextView = findViewById(R.id.pack_name);
@@ -95,28 +102,39 @@ public class StickerPackDetailsActivity extends AddStickerPackActivity {
         }
 
 
-        loadAds();
     }
 
-    private void loadAds() {
+    private void prepareAd() {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.loading_ads);
+        Window window = dialog.getWindow();
+        assert window != null;
+        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        window.setGravity(Gravity.CENTER);
+        window.setWindowAnimations(R.style.DialogAnimation);
+        window.setLayout(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(false);
+        dialog.show();
+
         interstitialAd = new InterstitialAd(this);
         interstitialAd.setAdUnitId(getResources().getString(R.string.interstitial_id));
         interstitialAd.loadAd(new AdRequest.Builder().build());
+
         interstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {
                 super.onAdLoaded();
                 interstitialAd.show();
+                dialog.cancel();
+            }
+
+            @Override
+            public void onAdFailedToLoad(int i) {
+                super.onAdFailedToLoad(i);
+                dialog.cancel();
             }
         });
-    }
 
-    @Override
-    protected void onDestroy() {
-        if (interstitialAd != null) {
-            interstitialAd.setAdListener(null);
-        }
-        super.onDestroy();
     }
 
     private void launchInfoActivity(String publisherWebsite, String publisherEmail, String privacyPolicyWebsite, String licenseAgreementWebsite, String trayIconUriString) {
@@ -197,10 +215,6 @@ public class StickerPackDetailsActivity extends AddStickerPackActivity {
         super.onPause();
         if (whiteListCheckAsyncTask != null && !whiteListCheckAsyncTask.isCancelled()) {
             whiteListCheckAsyncTask.cancel(true);
-        }
-
-        if (interstitialAd != null) {
-            interstitialAd.setAdListener(null);
         }
     }
 

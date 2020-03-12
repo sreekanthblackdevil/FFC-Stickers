@@ -26,7 +26,13 @@
         <item name="android:textAllCaps">true</item>
     </style>
 
-    <style name="sticker_packs_list_item_author_style">
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/error_dialog_enter_animation</item>
+        <item name="android:windowExitAnimation">@anim/error_dialog_exit_animation</item>
+    </style>
+
+    <style name="sticker_packs_list_item_author_style">error_dialog_enter_animation.xml
+error_dialog_exit_animation.xml
         <item name="android:gravity">center_vertical</item>
         <item name="android:maxLines">1</item>
         <item name="android:singleLine">true</item>

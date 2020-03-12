@@ -23,8 +23,6 @@ import android.widget.TextView;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.IdRes;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 
 import java.io.FileNotFoundException;
@@ -33,7 +31,6 @@ import java.io.InputStream;
 public class StickerPackInfoActivity extends BaseActivity {
 
     private static final String TAG = "StickerPackInfoActivity";
-    private InterstitialAd interstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,44 +61,9 @@ public class StickerPackInfoActivity extends BaseActivity {
         } else {
             sendEmail.setOnClickListener(v -> launchEmailClient(email));
         }
-
         setupTextView(privacyPolicy, R.id.privacy_policy);
-
         setupTextView(licenseAgreement, R.id.license_agreement);
-
-
-        loadAds();
     }
-
-    private void loadAds() {
-
-        interstitialAd = new InterstitialAd(this);
-        interstitialAd.loadAd(new AdRequest.Builder().build());
-        interstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdLoaded() {
-                super.onAdLoaded();
-                interstitialAd.show();
-            }
-        });
-    }
-
-    @Override
-    protected void onDestroy() {
-        if (interstitialAd != null) {
-            interstitialAd.setAdListener(null);
-        }
-        super.onDestroy();
-    }
-
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//
-//        if (interstitialAd != null) {
-//            interstitialAd.setAdListener(null);
-//        }
-//    }
 
     private void setupTextView(String website, @IdRes int textViewResId) {
         final TextView viewWebpage = findViewById(textViewResId);

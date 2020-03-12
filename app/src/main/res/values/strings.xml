@@ -1,8 +1,8 @@
 <resources>
 
-    <string name="app_id" translatable="false">ca-app-pub-4160188681015958~8998858513</string>
-    <string name="interstitial_id" translatable="false">ca-app-pub-4160188681015958/7494205159</string>
-    <string name="banner_ad" translatable="false">ca-app-pub-4160188681015958/8615715135</string>
+    <string name="app_id" translatable="false">ca-app-pub-1004260321351378~5654240374</string>
+    <string name="interstitial_id" translatable="false">ca-app-pub-1004260321351378/2122668404</string>
+    <string name="banner_ad" translatable="false">ca-app-pub-1004260321351378/5462668683</string>
 
     //test
 
@@ -47,4 +47,5 @@
     <string name="add_pack_fail_prompt_update_play_link">Update</string>
     <!-- Toast text when we could not take user to play store because they don't have Google Play app installed -->
     <string name="cannot_find_play_store">Google Play is not installed on the device.</string>
+    <string name="loading_sponsor" translatable="false">Loading Sponsor...</string>
 </resources>
